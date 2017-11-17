@@ -155,10 +155,22 @@ module.exports = {
           {
             test: /\.styl$/,
             loaders: ['css-loader?modules&minimize&camelCase&localIdentName=[path][name]--[local]', 'stylus-loader'],
-          }, {
+          },
+          {
             test: /\.svg$/,
-            loaders: ['babel-loader?presets[]=react', 'svg-jsx-loader'],
-          }, {
+            use: [
+              {
+                loader: "babel-loader"
+              },
+              {
+                loader: "react-svg-loader",
+                options: {
+                  jsx: true // true outputs JSX tags
+                }
+              }
+            ]
+          },
+          {
             test: /\.png?$/,
             exclude: /node_modules/,
             loader: 'file-loader',
