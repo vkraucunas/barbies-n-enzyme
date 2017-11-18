@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { Link, Route, Switch } from 'react-router-dom';
+import Paper from 'material-ui/Paper'
+import HeaderBar from './components/HeaderBar'
+
 import BarbiesDisplay from './pages/BarbiesDisplay'
 import BarbieDetail from './pages/BarbieDetail'
 import AddEditDoll from './pages/AddEditDoll'
@@ -13,6 +16,12 @@ const Home = () => (
   </div>
 )
 
+const ContainerStyles = {
+  margin: 'auto',
+  width: '80%',
+  padding: '50px'
+}
+
 /* Category component */
 const Category = () => (
   <Switch>
@@ -23,11 +32,15 @@ const Category = () => (
   </Switch>
 )
 
+
 class App extends Component {
   render() {
     return (
       <div className="App">
         <header className="App-header">
+        <HeaderBar
+          title="Title"
+        />
           <ul className="nav navbar-nav">
             <li><Link to="/">Home</Link></li>
             <li><Link to="/barbies">Barbies</Link></li>
@@ -36,11 +49,16 @@ class App extends Component {
           </ul>
         </header>
         <main>
-          <Switch>
-            <Route path="/" exact component={Home} />
-            <Route path="/barbies" component={Category}/>
-          </Switch>
+          <Paper zDepth={2} style={ContainerStyles}>
+            <Switch>
+              <Route path="/" exact component={Home} />
+              <Route path="/barbies" component={Category}/>
+            </Switch>
+          </Paper>
         </main>
+        <footer>
+          Gibsunas Consulting, LLC
+          </footer>
       </div>
     );
   }
