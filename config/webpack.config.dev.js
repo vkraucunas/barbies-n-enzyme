@@ -154,7 +154,7 @@ module.exports = {
           },
           {
             test: /\.styl$/,
-            loaders: ['css-loader?modules&minimize&camelCase&localIdentName=[path][name]--[local]', 'stylus-loader'],
+            loaders: ['isomorphic-style-loader', 'css-loader?modules&minimize&camelCase&localIdentName=[path][name]--[local]', 'stylus-loader'],
           },
           {
             test: /\.svg$/,
@@ -169,11 +169,6 @@ module.exports = {
                 }
               }
             ]
-          },
-          {
-            test: /\.png?$/,
-            exclude: /node_modules/,
-            loader: 'file-loader',
           },
           // "postcss" loader applies autoprefixer to our CSS.
           // "css" loader resolves paths in CSS and adds assets as dependencies.
@@ -269,7 +264,7 @@ module.exports = {
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
     new stylusLoader.OptionsPlugin({
       default: {
-        use: [s => s.import(paths.join(__dirname, '../src/globals/styles/index.styl'))]
+        use: [s => s.import(path.join(__dirname, '../src/globals/styles.styl'))]
       }
     })
   ],
