@@ -1,13 +1,20 @@
 import React from 'react';
 import classNames from 'classnames/bind'
-import withStyles from 'isomorphic-style-loader/lib/withStyles'
 import s from './index.styl'
 import {Link} from 'react-router-dom'
-import {Card, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import {Card, CardMedia, CardTitle} from 'material-ui/Card';
 import Chip from 'material-ui/Chip'
 
 const cx = classNames.bind(s)
 
+const BarbieCardStyle = {
+  minWidth: '40%',
+  margin: '20px'
+}
+
+const ChipStyles = {
+  display: 'inline-block !important'
+}
 
 class BarbieCard extends React.Component {
 
@@ -49,23 +56,19 @@ class BarbieCard extends React.Component {
         <Card
           expanded={this.state.expanded}
           onExpandChange={this.handleExpandChange}
-          className={s.barbieCard}>
-          <CardHeader
-            title="Doll Card"
-            actAsExpander={true}
-          />
+          className="barbieCard"
+          style={BarbieCardStyle}
+          >
           <CardMedia
-            showExpandableButton={true}
             expandable={false}
             overlay={<CardTitle title={name} subtitle={`Estimated Value: ${est_value}`} />}
           >
-            <img src={photo_1} alt="" />
+            <img src={photo_1} alt={name} />
           </CardMedia>
-          <CardTitle title="Card title" subtitle="Card subtitle" expandable={true} />
-          <CardText expandable={true}>
-            <Chip>{year_produced}</Chip>
-            <Chip>{condition_id}</Chip>
-          </CardText>
+          <CardMedia actAsExpander={true} showExpandableButton={true} expandable={true}>
+            <Chip styles={ChipStyles}>{year_produced}</Chip>
+            <Chip styles={ChipStyles}>{condition_id}</Chip>
+          </CardMedia>
         </Card>
       </Link>
     );
