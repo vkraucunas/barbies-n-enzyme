@@ -15,13 +15,12 @@ const Home = () => (
 
 /* Category component */
 const Category = () => (
-  <div>
-    <Switch>
-      <Route path="/" exact component={BarbiesDisplay} />
-      <Route path="/add" exact component={AddEditDoll} />
-      <Route path="/:id" component={BarbieDetail} />
-    </Switch>
-  </div>
+  <Switch>
+    <Route exact path="/barbies" component={BarbiesDisplay} />
+    <Route exact path="/barbies/add" component={AddEditDoll} />
+    <Route path="/barbies/:id/edit" component={AddEditDoll} />
+    <Route path="/barbies/:id" component={BarbieDetail} />
+  </Switch>
 )
 
 class App extends Component {
@@ -33,7 +32,7 @@ class App extends Component {
             <li><Link to="/">Home</Link></li>
             <li><Link to="/barbies">Barbies</Link></li>
             <li><Link to="/barbies/add">Add A Doll</Link></li>
-            <li><Link to="barbies/2">Skipper</Link></li>
+            <li><Link to="/barbies/2">Skipper</Link></li>
           </ul>
         </header>
         <main>
