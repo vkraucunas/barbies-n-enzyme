@@ -1,10 +1,12 @@
 import React from 'react';
 
+import CoreDetails from '../../components/CoreDetails'
+
 
 export default function () {
   return (
     <div>
-      <h1>Barbie Detail</h1>
+      <CoreDetails />
     </div>
   )
 }

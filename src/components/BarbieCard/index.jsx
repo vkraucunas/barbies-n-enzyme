@@ -41,7 +41,7 @@ class BarbieCard extends React.Component {
     let {
       id,
       name,
-      doll_type,
+      overlay,
       est_value,
       photo_1,
       year_produced,
@@ -57,7 +57,7 @@ class BarbieCard extends React.Component {
           >
           <CardMedia
             expandable={false}
-            overlay={<CardTitle title={name} subtitle={`Estimated Value: ${est_value}`} />}
+            overlay={overlay && <CardTitle title={name} subtitle={`Estimated Value: ${est_value}`} />}
           >
             <img src={photo_1} alt={name} />
           </CardMedia>
@@ -70,5 +70,7 @@ class BarbieCard extends React.Component {
     );
   }
 }
+
+
 
 export default BarbieCard
