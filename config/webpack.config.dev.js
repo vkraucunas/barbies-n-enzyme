@@ -154,14 +154,21 @@ module.exports = {
           },
           {
             test: /\.styl$/,
-            loaders: ['css-loader?modules&minimize&camelCase&localIdentName=[path][name]--[local]', 'stylus-loader'],
-          }, {
+            loaders: ['isomorphic-style-loader', 'css-loader?modules&minimize&camelCase&localIdentName=[path][name]--[local]', 'stylus-loader'],
+          },
+          {
             test: /\.svg$/,
-            loaders: ['babel-loader?presets[]=react', 'svg-jsx-loader'],
-          }, {
-            test: /\.png?$/,
-            exclude: /node_modules/,
-            loader: 'file-loader',
+            use: [
+              {
+                loader: "babel-loader"
+              },
+              {
+                loader: "react-svg-loader",
+                options: {
+                  jsx: true // true outputs JSX tags
+                }
+              }
+            ]
           },
           // "postcss" loader applies autoprefixer to our CSS.
           // "css" loader resolves paths in CSS and adds assets as dependencies.
@@ -255,11 +262,6 @@ module.exports = {
     // https://github.com/jmblog/how-to-optimize-momentjs-with-webpack
     // You can remove this if you don't use Moment.js:
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
-    new stylusLoader.OptionsPlugin({
-      default: {
-        use: [s => s.import(paths.join(__dirname, '../src/globals/styles/index.styl'))]
-      }
-    })
   ],
   // Some libraries import Node modules but don't use them in the browser.
   // Tell Webpack to provide empty mocks for them so importing them works.
