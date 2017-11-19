@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { Link, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Paper from 'material-ui/Paper'
-import HeaderBar from './components/HeaderBar'
+import HeaderDrawer from './components/HeaderDrawer'
 
 import BarbiesDisplay from './pages/BarbiesDisplay'
 import BarbieDetail from './pages/BarbieDetail'
 import AddEditDoll from './pages/AddEditDoll'
-
 
 import './App.css';
 
@@ -16,11 +15,53 @@ const Home = () => (
   </div>
 )
 
-const ContainerStyles = {
-  margin: 'auto',
-  width: '80%',
-  padding: '50px'
+const styles = {
+  App: {
+    height: '100%',
+    minHeight: '100vh',
+    width: '100%',
+    margin: '0',
+    padding: '0',
+    border: '0',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+  },
+  Header: {
+    marginBottom: '50px'
+  },
+  Container: {
+    margin: 'auto',
+    width: '80%',
+    padding: '50px',
+    minHeight: '70vh',
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  Footer: {
+    marginTop: "50px",
+    textAlign: 'center'
+  }
 }
+
+const navLinks = [
+  {
+    to: "/",
+  text: 'Home',
+},
+  {
+    to: "/barbies",
+  text: 'Barbies',
+},
+  {
+    to: "/barbies/add",
+  text: 'Add A Doll',
+},
+  {
+    to: "/barbies/2",
+  text: 'Skipper',
+},
+]
 
 /* Category component */
 const Category = () => (
@@ -36,29 +77,23 @@ const Category = () => (
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-        <HeaderBar
-          title="Title"
-        />
-          <ul className="nav navbar-nav">
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/barbies">Barbies</Link></li>
-            <li><Link to="/barbies/add">Add A Doll</Link></li>
-            <li><Link to="/barbies/2">Skipper</Link></li>
-          </ul>
+      <div style={styles.App}>
+        <header style={styles.Header}>
+          <HeaderDrawer
+            linkInfo={navLinks}
+          />
         </header>
         <main>
-          <Paper zDepth={2} style={ContainerStyles}>
+          <Paper zDepth={2} style={styles.Container}>
             <Switch>
               <Route path="/" exact component={Home} />
               <Route path="/barbies" component={Category}/>
             </Switch>
           </Paper>
         </main>
-        <footer>
-          Gibsunas Consulting, LLC
-          </footer>
+        <footer style={styles.Footer}>
+          <p>&copy; Gibsunas Consulting, LLC</p>
+        </footer>
       </div>
     );
   }
