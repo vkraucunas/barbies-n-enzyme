@@ -27,8 +27,6 @@ class AddEditDoll extends Component {
 
   handleChange = (event, index, value) => this.setState({value});
 
-
-
   render() {
     return (
       <div>
@@ -46,6 +44,8 @@ class AddEditDoll extends Component {
           <PurchaseDetailFields />
           <PhotoFields />
           <RaisedButton>Submit</RaisedButton>
+          <RaisedButton>Cancel</RaisedButton>
+
         </form>
       </div>
     )

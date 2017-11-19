@@ -92,7 +92,7 @@ class App extends Component {
           </Paper>
         </main>
         <footer style={styles.Footer}>
-          <p>&copy; Gibsunas Consulting, LLC</p>
+          <p>&copy; Gibsunas Consulting, LLC, {new Date().getFullYear()}</p>
         </footer>
       </div>
     );
