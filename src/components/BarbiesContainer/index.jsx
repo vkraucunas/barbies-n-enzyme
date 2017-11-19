@@ -1,9 +1,6 @@
 import React from 'react';
-import classNames from 'classnames/bind'
-import s from './index.styl'
 import BarbieCard from '../BarbieCard';
 
-const cx = classNames.bind(s)
 
 const BarbiesStyles = {
   width: '100%',

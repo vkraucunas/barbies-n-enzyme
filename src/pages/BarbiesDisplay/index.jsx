@@ -1,5 +1,5 @@
 import React from 'react';
-import Barbies from '../../components/Barbies'
+import BarbiesContainer from '../../components/BarbiesContainer'
 
 const BarbieInfo = [
   {
@@ -60,7 +60,7 @@ const BarbieInfo = [
 const BarbiesDisplay = (props) =>{
   return (
     <div>
-      <Barbies barbies={BarbieInfo} />
+      <BarbiesContainer barbies={BarbieInfo} />
     </div>
   )
 }

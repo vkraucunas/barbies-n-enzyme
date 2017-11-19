@@ -2,10 +2,10 @@ import React, {Component} from 'react';
 import RaisedButton from 'material-ui/RaisedButton'
 import Divider from 'material-ui/Divider'
 
-import RequiredBarbieFields from '../../components/RequiredBarbieFields'
-import DetailFields from '../../components/DetailFields'
-import PurchaseDetailFields from '../../components/PurchaseDetailFields'
-import PhotoFields from '../../components/PhotoFields'
+import RequiredBarbieFields from '../../components/Form.RequiredBarbieFields'
+import DetailFields from '../../components/Form.DetailFields'
+import PurchaseDetailFields from '../../components/Form.PurchaseDetailFields'
+import PhotoFields from '../../components/Form.PhotoFields'
 
 const styles = {
   FormBlock: {
