@@ -1,11 +1,7 @@
 import React from 'react';
-import classNames from 'classnames/bind'
-import s from './index.styl'
 import {Link} from 'react-router-dom'
 import {Card, CardMedia, CardTitle} from 'material-ui/Card';
 import Chip from 'material-ui/Chip'
-
-const cx = classNames.bind(s)
 
 const BarbieCardStyle = {
   minWidth: '40%',
