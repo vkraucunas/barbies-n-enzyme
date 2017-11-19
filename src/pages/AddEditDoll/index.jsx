@@ -4,6 +4,8 @@ import Divider from 'material-ui/Divider'
 
 import RequiredBarbieFields from '../../components/RequiredBarbieFields'
 import DetailFields from '../../components/DetailFields'
+import PurchaseDetailFields from '../../components/PurchaseDetailFields'
+import PhotoFields from '../../components/PhotoFields'
 
 const styles = {
   FormBlock: {
@@ -41,6 +43,8 @@ class AddEditDoll extends Component {
           <p><em>Additional Information</em></p>
           <DetailFields />
           <Divider style={styles.Divider} />
+          <PurchaseDetailFields />
+          <PhotoFields />
           <RaisedButton>Submit</RaisedButton>
         </form>
       </div>
