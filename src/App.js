@@ -33,7 +33,7 @@ const styles = {
   Container: {
     margin: 'auto',
     width: '80%',
-    padding: '50px',
+    padding: '50px 100px',
     minHeight: '70vh',
     display: 'flex',
     flexDirection: 'column',
