@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import RaisedButton from 'material-ui/RaisedButton'
 import Divider from 'material-ui/Divider'
 
-import RequiredBarbieFields from '../../components/Form.RequiredBarbieFields'
+import RequiredFields from '../../components/Form.RequiredFields'
 import DetailFields from '../../components/Form.DetailFields'
 import PurchaseDetailFields from '../../components/Form.PurchaseDetailFields'
 import PhotoFields from '../../components/Form.PhotoFields'
@@ -38,7 +38,7 @@ class AddEditDoll extends Component {
           console.log("huzzah")
           }}>
           <p><em>These fields are required to add a doll</em></p>
-          <RequiredBarbieFields />
+          <RequiredFields />
           <Divider style={styles.Divider} />
           <p><em>Additional Information</em></p>
           <DetailFields />
