@@ -2,7 +2,9 @@ import React, {Component} from 'react';
 import TextField from 'material-ui/TextField'
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
-import Checkbox from 'material-ui/Checkbox'
+import Checkbox from 'material-ui/Checkbox';
+
+import YearSelect from '../YearSelect'
 
 class DetailFields extends Component {
   constructor(props) {
@@ -13,27 +15,12 @@ class DetailFields extends Component {
     }
   }
 
-  years = () => {
-    const {minYear, maxYear} = this.state
-    let yearArr = []
-    for(let i = maxYear; i >= minYear; i--) {
-      yearArr.push(i)
-    }
-    return yearArr
-  }
+
 
   render() {
     return (
       <div className="detailFields">
-        <SelectField
-          floatingLabelText="Year Produced"
-          value={this.state.value}
-          onChange={this.handleChange}
-        >
-        {
-          this.years().map(year => <MenuItem key={year} value={year} primaryText={year} />)
-        }
-        </SelectField>
+        <YearSelect />
         <SelectField
           floatingLabelText="Doll Class"
           value={this.state.value}
