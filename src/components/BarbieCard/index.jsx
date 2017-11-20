@@ -21,22 +21,6 @@ class BarbieCard extends React.Component {
     };
   }
 
-  handleExpandChange = (expanded) => {
-    this.setState({expanded: expanded});
-  };
-
-  handleToggle = (event, toggle) => {
-    this.setState({expanded: toggle});
-  };
-
-  handleExpand = () => {
-    this.setState({expanded: true});
-  };
-
-  handleReduce = () => {
-    this.setState({expanded: false});
-  };
-
   render() {
     let {
       id,
@@ -44,26 +28,22 @@ class BarbieCard extends React.Component {
       overlay,
       est_value,
       photo_1,
-      year_produced,
-      condition_id
     } = this.props
+
+    console.log('====================================');
+    console.log("name is:", name);
+    console.log('====================================');
     return (
       <Link to={`/barbies/${id}`}>
         <Card
-          expanded={this.state.expanded}
-          onExpandChange={this.handleExpandChange}
           className="barbieCard"
           style={BarbieCardStyle}
           >
           <CardMedia
             expandable={false}
-            overlay={overlay && <CardTitle title={name} subtitle={`Estimated Value: ${est_value}`} />}
+            overlay={<CardTitle title={name} subtitle={est_value && `Estimated Value: ${est_value}`} />}
           >
             <img src={photo_1} alt={name} />
-          </CardMedia>
-          <CardMedia actAsExpander={true} showExpandableButton={true} expandable={true}>
-            <Chip styles={ChipStyles}>{year_produced}</Chip>
-            <Chip styles={ChipStyles}>{condition_id}</Chip>
           </CardMedia>
         </Card>
       </Link>

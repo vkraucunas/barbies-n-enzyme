@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import BarbieCard from '../BarbieCard';
 
 
@@ -11,13 +11,26 @@ const BarbiesStyles = {
   justifyContent: 'space-around'
 }
 
-const Barbies = (props) => {
-  let {barbies} = props;
-  return (
-    <div style={BarbiesStyles}>
-      {barbies.map((barbieProps) => <BarbieCard key={barbieProps.id} {...barbieProps} />)}
-    </div>
-  )
+class Barbies extends Component {
+
+  constructor(props) {
+    super(props)
+
+    this.state = {}
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({ barbies: nextProps.barbies });
+  }
+
+  render() {
+    let {barbies} = this.state;
+    return (
+      <div style={BarbiesStyles}>
+        {barbies && barbies.map((barbieProps) => <BarbieCard key={barbieProps.id} {...barbieProps} />)}
+      </div>
+    )
+  }
 }
 
 
