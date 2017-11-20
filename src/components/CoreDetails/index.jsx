@@ -21,7 +21,6 @@ const styles = {
 
 const CoreDetails = ({...props}) => {
   let {
-    id,
     name,
     est_value,
     est_date,
