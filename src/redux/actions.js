@@ -20,34 +20,43 @@ export const getDolls =  () => {
   }
 }
 
-export const getDoll = (id) => {
-  const request = axios.get(`${ROOT_URL}/dolls/${id}`)
-
-  return {
-    type: GET_SINGLE_DOLL,
-    payload: request
-  }
+export const getSingleDoll = (id) => {
+  return dispatch => {
+    axios.get(`${ROOT_URL}/dolls/${id}`)
+      .then(res => {
+        dispatch({
+          type: GET_SINGLE_DOLL,
+          payload: res.data[0]
+        })
+      })
+    }
 }
 
 export const addDoll = (values, callback) => {
-  const request = axios
-    .post(`${ROOT_URL}/dolls`, values)
-    .then(() => callback());
-
-  return {
-    type: ADD_DOLL,
-    payload: request
-  };
+  return dispatch => {
+    axios.post(`${ROOT_URL}/dolls`, values)
+      .then(res => {
+        console.log("res is:", res)
+        callback()
+      });
+  }
 }
+  // return {
+  //   type: ADD_DOLL,
+  //   payload: request
+  // };
 
 export const updateDoll = (values, callback) => {
   const id = values.id
-  const request = axios
-    .put(`${ROOT_URL}/dolls/${id}`, values)
-    .then(() => callback());
-
-  return {
-    type: UPDATE_DOLL,
-    payload: request
-  };
+  return dispatch => {
+    axios.put(`${ROOT_URL}/dolls/${id}`, values)
+      .then(res => {
+        console.log("res is:", res)
+        callback();
+      })
+  }
 }
+  // return {
+  //   type: UPDATE_DOLL,
+  //   payload: request
+  // };
