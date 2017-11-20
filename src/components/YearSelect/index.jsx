@@ -13,11 +13,11 @@ const years = () => {
   return yearArr
 }
 
-const YearSelect = () => {
+const YearSelect = ({props}) => {
   return (
     <SelectField
       floatingLabelText="Year Produced"
-      value={''}
+      // value={props.year}
       onChange={() => true}
     >
     {

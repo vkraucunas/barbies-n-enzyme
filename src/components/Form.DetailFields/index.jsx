@@ -4,51 +4,51 @@ import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import Checkbox from 'material-ui/Checkbox';
 
-import YearSelect from '../YearSelect'
-
 class DetailFields extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      minYear: 1959,
-      maxYear: new Date().getFullYear()
+      formData: {}
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({ formData: nextProps });
+  }
 
 
   render() {
+    let {classification, reproduction, upc, notes} = this.state.formData
     return (
       <div className="detailFields">
-        <YearSelect />
         <SelectField
           floatingLabelText="Doll Class"
-          value={this.state.value}
+          value={classification}
           onChange={this.handleChange}
         >
-          <MenuItem value={1} label="A/O" primaryText="All Original" />
-          <MenuItem value={2} label="Collector" primaryText="Collector Edition" />
-          <MenuItem value={3} label="Customized" primaryText="Customized" />
-          <MenuItem value={4} label="Limited Edition/Designer" primaryText="Limited Edition/Designer" />
-          <MenuItem value={5} label="HTF" primaryText="Hard to Find" />
-          <MenuItem value={5} label="OSS" primaryText="Original Swim Suit" />
+          <MenuItem value={"A/O"} label="A/O" primaryText="All Original" />
+          <MenuItem value={"Collector"} label="Collector" primaryText="Collector Edition" />
+          <MenuItem value={"Customized"} label="Customized" primaryText="Customized" />
+          <MenuItem value={"Limited Edition/Designer"} label="Limited Edition/Designer" primaryText="Limited Edition/Designer" />
+          <MenuItem value={"HTF"} label="HTF" primaryText="Hard to Find" />
+          <MenuItem value={"OSS"} label="OSS" primaryText="Original Swim Suit" />
 
         </SelectField>
         <TextField
           name="upc"
-          defaultValue=""
+          value={upc}
           floatingLabelText="UPC"
           fullWidth={true}
         />
         <Checkbox
           label="Reproduction Doll"
-          checked={true}
+          checked={reproduction}
           // onCheck={this.updateCheck.bind(this)}
           // style={styles.checkbox}
         />
         <TextField
           name="notes"
-          defaultValue=""
+          value={notes}
           floatingLabelText="Notes from Fran"
           fullWidth={true}
           multiLine={true}
