@@ -1,15 +1,10 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
 import {Card, CardMedia, CardTitle} from 'material-ui/Card';
-import Chip from 'material-ui/Chip'
 
 const BarbieCardStyle = {
   minWidth: '40%',
   margin: '20px'
-}
-
-const ChipStyles = {
-  display: 'inline-block !important'
 }
 
 class BarbieCard extends React.Component {
@@ -25,14 +20,9 @@ class BarbieCard extends React.Component {
     let {
       id,
       name,
-      overlay,
       est_value,
       photo_1,
     } = this.props
-
-    console.log('====================================');
-    console.log("name is:", name);
-    console.log('====================================');
     return (
       <Link to={`/barbies/${id}`}>
         <Card
